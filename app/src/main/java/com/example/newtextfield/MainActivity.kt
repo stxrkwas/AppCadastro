@@ -1,3 +1,4 @@
+// Define o pacote para a classe MainActivity.
 package com.example.newtextfield
 
 import android.os.Bundle
@@ -29,16 +30,22 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newtextfield.ui.theme.NewTextFieldTheme
 
+//Declara a classe MainActivity como uma subclasse de ComponentActivity.
 class MainActivity : ComponentActivity() {
+
+    //Sobrescreve o método onCreate da classe base para definir o conteúdo da atividade.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
+            // Define o conteúdo da atividade como um tema personalizado
             NewTextFieldTheme {
-                // A surface container using the 'background' color from the theme
+                // Cria uma superfície que preenche toda a tela.
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    // Chama a função Register para exibir o formulário de cadastro.
                     Register()
                 }
             }
@@ -46,6 +53,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+// Define a função Register como um Composable.
 @Composable
 fun Register() {
 
@@ -66,34 +74,42 @@ fun Register() {
     //Criando a variável estado:
     var estado by remember{ mutableStateOf("") }
 
+    //Criando o formulário de cadastro:
     Column(
         Modifier
             .fillMaxWidth(),
              Arrangement.Center
     ){
 
+        // Cria uma linha para exibir o título do aplicativo.
         Row(
             Modifier
                 .fillMaxWidth(),
                  Arrangement.Center
         ){
+
+            // Adiciona o título do aplicativo no meio ao centro da linha.
             Text(
                 text = "App cadastro",
                 fontSize = 20.sp
             )
         }
 
+        // Adiciona um espaço vertical.
         Divider(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 20.dp)
         )
 
+        // Cria uma linha para exibir o campo de texto para o nome.
         Row(
             Modifier
                 .fillMaxWidth(),
             Arrangement.Center
         ){
+
+            // Adiciona o campo de texto para o nome.
             TextField(
                 value = nome,
                 onValueChange ={novoValor -> nome = novoValor},
@@ -101,14 +117,17 @@ fun Register() {
             )
         }
 
+        // Adiciona um espaço vertical.
         Spacer(modifier = Modifier.height(16.dp))
 
-        //Bairro:
+        // Cria uma linha para exibir o campo de texto para o bairro.
         Row(
             Modifier
                 .fillMaxWidth(),
             Arrangement.Center
         ){
+
+            // Adiciona o campo de texto para o bairro.
             TextField(
                 value = bairro,
                 onValueChange ={novoValor -> bairro = novoValor},
@@ -116,14 +135,17 @@ fun Register() {
             )
         }
 
+        // Adiciona um espaço vertical.
         Spacer(modifier = Modifier.height(16.dp))
 
-        //CEP:
+        // Cria uma linha para exibir o campo de texto para o CEP.
         Row(
             Modifier
                 .fillMaxWidth(),
             Arrangement.Center
         ){
+
+            // Adiciona o campo de texto para o CEP.
             TextField(
                 value = cep,
                 onValueChange ={novoValor -> cep = novoValor},
@@ -131,14 +153,17 @@ fun Register() {
             )
         }
 
+        // Adiciona um espaço vertical.
         Spacer(modifier = Modifier.height(16.dp))
 
-        //Cidade:
+        // Cria uma linha para exibir o campo de texto para a cidade.
         Row(
             Modifier
                 .fillMaxWidth(),
             Arrangement.Center
         ){
+
+            // Adiciona o campo de texto para a cidade.
             TextField(
                 value = cidade,
                 onValueChange ={novoValor -> cidade = novoValor},
@@ -146,13 +171,17 @@ fun Register() {
             )
         }
 
+        // Adiciona um espaço vertical.
         Spacer(modifier = Modifier.height(16.dp))
-        //Estado:
+
+        // Cria uma linha para exibir o campo de texto para o estado.
         Row(
             Modifier
                 .fillMaxWidth(),
             Arrangement.Center
         ){
+
+            // Adiciona o campo de texto para o estado.
             TextField(
                 value = estado,
                 onValueChange ={novoValor -> estado = novoValor},
@@ -164,11 +193,14 @@ fun Register() {
         //Adiciona espaço vertical:
         Spacer(modifier = Modifier.height(26.dp))
 
+        //Cria uma linha para exibir o botão de cadastro.
         Row(
             Modifier
                 .fillMaxWidth(),
             Arrangement.Center
         ){
+
+            //Cria o botão de cadastro:
             Button(onClick = {}){
                 Text(text = "Cadastro")
             }
@@ -176,8 +208,11 @@ fun Register() {
     }
 }
 
+// Define a função RegisterPreview como um Composable.
 @Preview(showBackground = true)
 @Composable
+
+//Função para exibir o formulário de cadastro:
 fun RegisterPreview() {
     Register()
 }
